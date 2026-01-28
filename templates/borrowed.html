@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Borrowed Books</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+
+<!-- Navigation -->
+<div class="nav">
+    <a href="/dashboard">Dashboard</a>
+    <a href="/books">Books</a>
+    <a href="/borrowed">Borrowed</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="container">
+    <h2>Borrowed Books</h2>
+
+    {% if borrowed_books %}
+        <ul>
+            {% for borrow in borrowed_books %}
+                <li>
+                    <strong>{{ borrow.book.title }}</strong><br>
+                    Borrowed on: {{ borrow.borrow_date.strftime('%Y-%m-%d') }}<br><br>
+
+                    <a href="{{ url_for('return_book', borrow_id=borrow.id) }}"
+                       onclick="return confirmReturn()">
+                        Return Book
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p style="text-align:center;">No borrowed books.</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

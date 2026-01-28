@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Navigation -->
+<div class="nav">
+    <a href="/dashboard">Dashboard</a>
+    <a href="/books">Books</a>
+    <a href="/borrowed">Borrowed</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="container dashboard">
+    <h2>Dashboard</h2>
+    <p class="welcome">Welcome, <strong>{{ current_user.username }}</strong></p>
+
+    <div class="cards">
+        <a href="/books" class="card">
+            <h3>📚 Manage Books</h3>
+            <p>View and borrow available books</p>
+        </a>
+
+        <a href="/borrowed" class="card">
+            <h3>📖 Borrowed Books</h3>
+            <p>View and return borrowed books</p>
+        </a>
+
+        <a href="/logout" class="card danger">
+            <h3>🚪 Logout</h3>
+            <p>Sign out of your account</p>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

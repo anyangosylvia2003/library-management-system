@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Borrow Book</title>
+</head>
+<body>
+    <h2>Borrow Book</h2>
+    <p><b>{{ book.title }}</b> by {{ book.author }}</p>
+
+    <form method="POST">
+        <input type="text" name="user_name" placeholder="Student Name" required>
+        <button type="submit">Borrow</button>
+    </form>
+
+    <p><a href="/books">Back to Books</a></p>
+</body>
+</html>
